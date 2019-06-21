@@ -22,6 +22,7 @@ import cn.jpush.api.push.PushResult;
 import cn.jpush.api.push.model.Platform;
 import cn.jpush.api.push.model.PushPayload;
 import cn.jpush.api.push.model.audience.Audience;
+import cn.jpush.api.push.model.notification.AndroidNotification;
 import cn.jpush.api.push.model.notification.IosNotification;
 import cn.jpush.api.push.model.notification.Notification;
 import lombok.extern.slf4j.Slf4j;
@@ -102,9 +103,9 @@ public class PushHandler {
                 .setPlatform(Platform.all())
                 .setAudience(Audience.alias(String.valueOf(event.getToUserId())))
                 .setNotification(Notification.newBuilder()
-                        .addPlatformNotification(IosNotification.newBuilder()
-                                .setAlert(ALERT)
-                                .setBadge(1)
+                        .addPlatformNotification(AndroidNotification.newBuilder()
+                                .setTitle(event.getTitle())
+                                .setAlert(event.getContent())
                                 .addExtra("fromUserId", event.getFromUserId())
                                 .addExtra("focusId", event.getFocusId())
                                 .addExtra("type", event.getType())
