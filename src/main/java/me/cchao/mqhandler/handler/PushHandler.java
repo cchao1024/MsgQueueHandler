@@ -37,7 +37,6 @@ import static cn.jpush.api.push.model.notification.PlatformNotification.ALERT;
  * @author cchao
  * @version 2019-06-21.
  */
-
 @Component
 @RabbitListener(queues = "push")
 @Slf4j

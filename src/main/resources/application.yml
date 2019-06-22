@@ -19,7 +19,17 @@ spring:
   freemarker:
     settings:
       number_format: '0.##'   #数字格式化，无千分符
-
+  mail:
+    host: smtp.163.com
+    username:  insomnia163@163.com
+    password:  insomnia163
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
   jackson:
     default-property-inclusion: non_null
   servlet:
